@@ -1,10 +1,10 @@
 .City {
-    line-height: 40px;
+    line-height: 60px;
     text-align: center;
     font-weight: 600;
     font-size: 60px;
     margin: 0;
-    padding: 50px 0 25px;
+    padding: 40px 0 25px;
     color: rgb(250, 240, 108);
   }
   
