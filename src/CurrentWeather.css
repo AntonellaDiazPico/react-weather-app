@@ -1,7 +1,7 @@
 .weather {
     text-align: center;
     /* color: rgba(245, 245, 245, 0.863); */
-    padding: 0 50px;
+    padding: 35px 60px;
   }
   
   .todayWeather,
@@ -12,27 +12,28 @@
   }
   
   .current-icon {
-    font-size: 45px;
+    font-size: 55px;
     margin-top: -20px;
-    margin-bottom: -10px;
     color: rgba(245, 245, 245, 0.863);
   }
   
   .presentClimate {
-    font-size: 20px;
+    font-size: 25px;
+    position: relative;
+    top: -17px;
     color: rgba(245, 245, 245, 0.863);
   }
   
   .main-temp {
-    font-size: 80px;
-    font-weight: 500;
+    font-size: 120px;
+    font-weight: 600;
     line-height: 60px;
     color: rgb(250, 240, 108);
   }
   .cf-symbol {
-    font-size: 18px;
+    font-size: 22px;
     position: relative;
-    top: -35px;
+    top: -55px;
     left: 5px;
   }
   
@@ -47,10 +48,16 @@
   }
   
   .todayHumidityWind {
+    font-size: 17px;
     color: rgba(245, 245, 245, 0.863);
+    position: relative;
+    top: -15px;
   }
-  
-  .todayHumidityWind li i {
-    padding-right: 5px;
-  }
-  
+   .extras {
+    position: relative;
+    left: 5px;
+   }
+   .extras-humidity {
+    position: relative;
+    left: 8px;
+   }

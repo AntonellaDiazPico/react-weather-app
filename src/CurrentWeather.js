@@ -56,14 +56,14 @@ export default function CurrentWeather() {
           <ul className="todayHumidityWind">
             <li>
             <FontAwesomeIcon icon={faTemperatureHigh} />
-              Feels like: {weatherData.feelsLike}°C
+              <span className="extras">Feels like: {weatherData.feelsLike}°C</span>
             </li>
             <li>
             <FontAwesomeIcon icon={faTint} />
-              Humidity: {weatherData.humidity}%
+              <span className="extras-humidity">Humidity: {weatherData.humidity}%</span>
             </li>
             <li>
-              <FontAwesomeIcon icon={faWind} /> Wind: {weatherData.wind} km/h
+              <FontAwesomeIcon icon={faWind} /><span className="extras">Wind: {weatherData.wind} km/h</span>
             </li>
           </ul>
         </div>
