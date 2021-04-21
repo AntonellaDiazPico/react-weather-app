@@ -1,0 +1,23 @@
+.Footer footer {
+    text-align: center;
+    font-family: "Damion", cursive;
+    font-size: 15px;
+    margin-top: 30px;
+    color: rgb(250, 240, 108);
+  }
+  
+  .open-source-div {
+    text-align: center;
+  }
+  
+  .open-source-link {
+    color: rgb(250, 240, 108);
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .open-source-link:hover {
+    color: rgba(245, 245, 245, 0.863);
+    text-decoration: underline;
+  }
+  
