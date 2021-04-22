@@ -6,7 +6,7 @@ export default function Forecast() {
       <footer>Coded by Antonella Diaz Pico</footer>
       <div className="open-source-div">
         <a
-          href="https://github.com/AntonellaDiazPico/AntoWeatherApp"
+          href="https://github.com/AntonellaDiazPico/react-weather-app"
           target="_blank"
           rel="noreferrer"
           className="open-source-link"
