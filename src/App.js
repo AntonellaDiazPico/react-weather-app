@@ -24,6 +24,7 @@ import "./Forecast.css";
 export default function App() {
   return (
     <div className="App">
+      <div className="container">
       <SearchEngine />
       <City />
       <Date />
@@ -31,6 +32,7 @@ export default function App() {
       <CurrentWeather />
       <Forecast />
       <Footer />
+      </div>
     </div>
   );
 }
