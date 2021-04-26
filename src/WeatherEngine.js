@@ -1,12 +1,13 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 import { faCloudShowersHeavy } from '@fortawesome/free-solid-svg-icons'
 import { faTemperatureHigh } from '@fortawesome/free-solid-svg-icons'
 import { faTint } from '@fortawesome/free-solid-svg-icons'
 import { faWind } from '@fortawesome/free-solid-svg-icons'
 
 
-export default function CurrentWeather() {
+export default function WeatherEngine() {
 
   let weatherData = {
     icon: <FontAwesomeIcon icon={faCloudShowersHeavy} />,
@@ -17,7 +18,36 @@ export default function CurrentWeather() {
     wind: 13
   };
   return (
-    <div className="CurrentWeather">
+    <div className="WeatherEngine">
+
+      {/* SEARCH ENGINE BEGINS */}
+    <div className="SearchEngine">
+      <div className="row">
+        <div className="col d-flex justify-content-center">
+          <form className="searchBar">
+            <input
+              className="citySearch"
+              type="text"
+              placeholder="Where to today?"
+              autoComplete="off"
+            />
+          </form>
+          <button className="location-btn">
+          <FontAwesomeIcon icon={faMapMarkerAlt} />
+          </button>
+        </div>
+      </div>
+    </div>
+    {/* SEARCH ENGINE ENDS */}
+
+    {/* CITY, DATE & TIME BEGINS */}
+    <h1 className="text-capitalize city">Sunshine Coast</h1>
+    <div className="date">Friday, 29.02.2021</div>
+    <h2 className="time">12:08 pm</h2>
+
+    {/* CITY, DATE & TIME ENDS */}
+
+    {/* MAIN WEATHER INFO START */}
       <div className="row d-flex align-items-center weather">
         <div className="col-sm">
           <ul className="todayWeather">
@@ -68,6 +98,7 @@ export default function CurrentWeather() {
           </ul>
         </div>
       </div>
+      {/* MAIN WEATHER INFO ENDS */}
     </div>
   );
 }
