@@ -81,7 +81,7 @@ h2 {
     color: rgba(245, 245, 245, 0.863);
   }
   
-  .presentClimate {
+  .description {
     font-size: 25px;
     position: relative;
     top: -17px;
@@ -123,5 +123,5 @@ h2 {
    }
    .extras-humidity {
     position: relative;
-    left: 8px;
+    left: 10px;
    }
