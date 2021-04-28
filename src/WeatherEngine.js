@@ -1,35 +1,35 @@
 import React, { useState} from "react";
 import axios from "axios";
+import DateTime from "./DateTime.js";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 import { faCloudShowersHeavy } from '@fortawesome/free-solid-svg-icons'
 import { faTemperatureHigh } from '@fortawesome/free-solid-svg-icons'
 import { faTint } from '@fortawesome/free-solid-svg-icons'
 import { faWind } from '@fortawesome/free-solid-svg-icons'
-
+import "./DateTime.css";
 
 export default function WeatherEngine(props) {
   const [ready, setReady] = useState(false);
-  const [wheatherData, setWeatherData] = useState({});
+  const [weatherData, setWeatherData] = useState({});
 
   function handleCityResponse(response) {
     setWeatherData({
+      dateTime: new Date(response.data.dt * 1000),
       city: response.data.name,
       temperature: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
-      feelsLike: "23°C",
+      feelsLike: Math.round(response.data.main.feels_like),
       humidity: response.data.main.humidity,
-      wind: response.data.wind.speed,
+      wind: Math.round(response.data.wind.speed),
       icon: <FontAwesomeIcon icon={faCloudShowersHeavy} />,
     });
   setReady(true);  
   }
 
   if (ready) {
-
     return(
       <div className="WeatherEngine">
-
       {/* SEARCH ENGINE BEGINS */}
     <div className="SearchEngine">
       <div className="row">
@@ -51,17 +51,15 @@ export default function WeatherEngine(props) {
     {/* SEARCH ENGINE ENDS */}
 
     {/* CITY, DATE & TIME BEGINS */}
-    <h1 className="text-capitalize city">{wheatherData.city}</h1>
-    <div className="date">Friday, 29.02.2021</div>
-    <h2 className="time">12:08 pm</h2>
-
+    <h1 className="text-capitalize city">{weatherData.city}</h1>
+    <DateTime dateTime={weatherData.dateTime} />
     {/* CITY, DATE & TIME ENDS */}
 
     {/* MAIN WEATHER INFO START */}
       <div className="row d-flex align-items-center weather">
         <div className="col-sm">
           <ul className="todayWeather">
-            <li className="current-icon">{wheatherData.icon}</li>
+            <li className="current-icon">{weatherData.icon}</li>
             {/* <li>
                 <img
                   src="http://openweathermap.org/img/wn/10d@2x.png"
@@ -72,14 +70,14 @@ export default function WeatherEngine(props) {
               </li> */}
 
             <li className="text-capitalize description">
-              {wheatherData.description}
+              {weatherData.description}
             </li>
           </ul>
         </div>
 
         <div className="col-sm">
           <p className="main-temp">
-            {wheatherData.temperature}
+            {weatherData.temperature}
             <span className="cf-symbol">
               <a href="/" id="celsius-link" className="active">
                 °C
@@ -96,12 +94,12 @@ export default function WeatherEngine(props) {
           <ul className="text-left todayHumidityWind">
             <li>
             <FontAwesomeIcon icon={faTemperatureHigh} />
-              <span className="extras">Feels like: {wheatherData.feelsLike}°C</span>
+              <span className="extras">Feels like: {weatherData.feelsLike}°C</span>
             </li>
-            <li><FontAwesomeIcon icon={faTint} /><span className="extras-humidity">Humidity: {wheatherData.humidity}%</span>
+            <li><FontAwesomeIcon icon={faTint} /><span className="extras-humidity">Humidity: {weatherData.humidity}%</span>
             </li>
             <li>
-              <FontAwesomeIcon icon={faWind} /><span className="extras">Wind: {wheatherData.wind} km/h</span>
+              <FontAwesomeIcon icon={faWind} /><span className="extras">Wind: {weatherData.wind} km/h</span>
             </li>
           </ul>
         </div>
