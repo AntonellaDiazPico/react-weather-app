@@ -1,13 +1,13 @@
 import React, { useState} from "react";
 import axios from "axios";
-import DateTime from "./DateTime.js";
+
+import CityWeatherInfo from "./CityWeatherInfo.js";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 import { faCloudShowersHeavy } from '@fortawesome/free-solid-svg-icons'
-import { faTemperatureHigh } from '@fortawesome/free-solid-svg-icons'
-import { faTint } from '@fortawesome/free-solid-svg-icons'
-import { faWind } from '@fortawesome/free-solid-svg-icons'
-import "./DateTime.css";
+
+
 
 export default function WeatherEngine(props) {
   const [ready, setReady] = useState(false);
@@ -49,62 +49,8 @@ export default function WeatherEngine(props) {
       </div>
     </div>
     {/* SEARCH ENGINE ENDS */}
+    <CityWeatherInfo cityData={weatherData} />
 
-    {/* CITY, DATE & TIME BEGINS */}
-    <h1 className="text-capitalize city">{weatherData.city}</h1>
-    <DateTime dateTime={weatherData.dateTime} />
-    {/* CITY, DATE & TIME ENDS */}
-
-    {/* MAIN WEATHER INFO START */}
-      <div className="row d-flex align-items-center weather">
-        <div className="col-sm">
-          <ul className="todayWeather">
-            <li className="current-icon">{weatherData.icon}</li>
-            {/* <li>
-                <img
-                  src="http://openweathermap.org/img/wn/10d@2x.png"
-                  alt=""
-                  className="current-icon"
-                  id="current-icon"
-                />
-              </li> */}
-
-            <li className="text-capitalize description">
-              {weatherData.description}
-            </li>
-          </ul>
-        </div>
-
-        <div className="col-sm">
-          <p className="main-temp">
-            {weatherData.temperature}
-            <span className="cf-symbol">
-              <a href="/" id="celsius-link" className="active">
-                °C
-              </a>{" "}
-              |
-              <a href="/" id="fahrenheit-link">
-                °F
-              </a>
-            </span>
-          </p>
-        </div>
-
-        <div className="col-sm">
-          <ul className="text-left todayHumidityWind">
-            <li>
-            <FontAwesomeIcon icon={faTemperatureHigh} />
-              <span className="extras">Feels like: {weatherData.feelsLike}°C</span>
-            </li>
-            <li><FontAwesomeIcon icon={faTint} /><span className="extras-humidity">Humidity: {weatherData.humidity}%</span>
-            </li>
-            <li>
-              <FontAwesomeIcon icon={faWind} /><span className="extras">Wind: {weatherData.wind} km/h</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      {/* MAIN WEATHER INFO ENDS */}
     </div>
     );
     
