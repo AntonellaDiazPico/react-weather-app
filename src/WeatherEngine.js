@@ -3,7 +3,6 @@ import axios from "axios";
 import CityWeatherInfo from "./CityWeatherInfo.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
-// import { faCloudShowersHeavy } from "@fortawesome/free-solid-svg-icons";
 import Loader from "react-loader-spinner";
 
 export default function WeatherEngine(props) {
@@ -12,7 +11,6 @@ export default function WeatherEngine(props) {
   const [city, setCity] = useState(props.defaultCity);
 
   function handleCityResponse(response) {
-    console.log(response.data);
     setWeatherData({
       dateTime: new Date(response.data.dt * 1000),
       city: response.data.name,
@@ -22,7 +20,6 @@ export default function WeatherEngine(props) {
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
       icon: response.data.weather[0].icon,
-      // icon: response.data.weather[0].icon,
     });
     setReady(true);
   }
