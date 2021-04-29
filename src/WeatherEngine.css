@@ -65,15 +65,15 @@ input.citySearch:hover {
   }
   
   .current-icon {
-    font-size: 55px;
+    font-size: 110px;
     margin-top: -20px;
     color: rgba(245, 245, 245, 0.863);
   }
   
   .description {
-    font-size: 25px;
+    font-size: 20px;
     position: relative;
-    top: -17px;
+    top: -40px;
     color: rgba(245, 245, 245, 0.863);
   }
   
@@ -82,6 +82,8 @@ input.citySearch:hover {
     font-weight: 600;
     line-height: 60px;
     color: rgb(250, 240, 108);
+    position: relative;
+    top: 10px;
   }
   .cf-symbol {
     font-size: 22px;
@@ -101,6 +103,7 @@ input.citySearch:hover {
   }
   
   .todayHumidityWind {
+    padding-left: 30px;
     font-size: 17px;
     color: rgba(245, 245, 245, 0.863);
     position: relative;
