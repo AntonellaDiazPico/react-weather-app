@@ -1,6 +1,7 @@
 import React from "react";
 import DateTime from "./DateTime.js";
 import WeatherIcon from "./WeatherIcon";
+import TempConversion from "./TempConversion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTemperatureHigh } from "@fortawesome/free-solid-svg-icons";
 import { faTint } from "@fortawesome/free-solid-svg-icons";
@@ -28,18 +29,7 @@ export default function CityWeatherInfo(props) {
         </div>
 
         <div className="col-sm">
-          <p className="main-temp">
-            {props.cityData.temperature}
-            <span className="cf-symbol">
-              <a href="/" id="celsius-link" className="active">
-                °C
-              </a>{" "}
-              |
-              <a href="/" id="fahrenheit-link">
-                °F
-              </a>
-            </span>
-          </p>
+          <TempConversion celsiusTemp={props.cityData.temperature} />
         </div>
 
         <div className="col-sm">
