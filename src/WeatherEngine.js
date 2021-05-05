@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import CityWeatherInfo from "./CityWeatherInfo.js";
+import DailyForecast from "./DailyForecast.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import Loader from "react-loader-spinner";
+import "./WeatherEngine.css";
 
 export default function WeatherEngine(props) {
   const [ready, setReady] = useState(false);
@@ -11,7 +13,7 @@ export default function WeatherEngine(props) {
   const [city, setCity] = useState(props.defaultCity);
 
   function handleCityResponse(response) {
-    console.log(response.data);
+    // console.log(response.data);
     setWeatherData({
       dateTime: new Date(response.data.dt * 1000),
       city: response.data.name,
@@ -21,6 +23,7 @@ export default function WeatherEngine(props) {
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
       icon: response.data.weather[0].icon,
+      coordinates: response.data.coord
     });
     setReady(true);
   }
@@ -64,6 +67,7 @@ export default function WeatherEngine(props) {
         </div>
         {/* SEARCH ENGINE ENDS */}
         <CityWeatherInfo cityData={weatherData} />
+        <DailyForecast coordinates={weatherData.coordinates} />
       </div>
     );
   } else {

@@ -1,0 +1,15 @@
+
+  
+  .DailyForecast {
+    font-size: 20px;
+    text-align: center;
+    color: rgba(245, 245, 245, 0.863);
+    /* padding-bottom: 20px; */
+  }
+
+  .DailyForecast-icon {
+    font-size: 40px;
+    margin: -15px 0 -10px;
+
+  }
+  
