@@ -13,7 +13,6 @@ export default function WeatherEngine(props) {
   const [city, setCity] = useState(props.defaultCity);
 
   function handleCityResponse(response) {
-    // console.log(response.data);
     setWeatherData({
       dateTime: new Date(response.data.dt * 1000),
       city: response.data.name,
@@ -31,6 +30,7 @@ export default function WeatherEngine(props) {
   function searchGenerator() {
     let apiKey = "7397d5769aa7c8ab77c0945b1e990b7d";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
     axios.get(apiUrl).then(handleCityResponse);
   }
 
@@ -41,6 +41,21 @@ export default function WeatherEngine(props) {
   function handleFormSubmit(event) {
     event.preventDefault();
     searchGenerator();
+  }
+
+  function getGeolocation(position) {
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+    let apiKey = "7397d5769aa7c8ab77c0945b1e990b7d";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+    
+    axios.get(apiUrl).then(handleCityResponse);
+
+  }
+  function handleGeolocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(getGeolocation)
+
   }
 
   if (ready) {
@@ -59,7 +74,7 @@ export default function WeatherEngine(props) {
                   onChange={handleCityChange}
                 />
               </form>
-              <button className="location-btn">
+              <button className="location-btn" onClick={handleGeolocation}>
                 <FontAwesomeIcon icon={faMapMarkerAlt} />
               </button>
             </div>
