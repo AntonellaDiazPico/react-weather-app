@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
-import CityWeatherInfo from "./CityWeatherInfo.js";
-import DailyForecast from "./DailyForecast.js";
+
+import CityWeatherInfo from "./CityWeatherInfo";
+import DailyForecast from "./DailyForecast";
+import "./WeatherEngine.css";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import Loader from "react-loader-spinner";
-import "./WeatherEngine.css";
 
 export default function WeatherEngine(props) {
   const [ready, setReady] = useState(false);
@@ -22,7 +24,7 @@ export default function WeatherEngine(props) {
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
       icon: response.data.weather[0].icon,
-      coordinates: response.data.coord
+      coordinates: response.data.coord,
     });
     setReady(true);
   }
@@ -30,7 +32,6 @@ export default function WeatherEngine(props) {
   function searchGenerator() {
     let apiKey = "7397d5769aa7c8ab77c0945b1e990b7d";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
     axios.get(apiUrl).then(handleCityResponse);
   }
 
@@ -48,14 +49,12 @@ export default function WeatherEngine(props) {
     let longitude = position.coords.longitude;
     let apiKey = "7397d5769aa7c8ab77c0945b1e990b7d";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-    
     axios.get(apiUrl).then(handleCityResponse);
-
   }
+  
   function handleGeolocation(event) {
     event.preventDefault();
-    navigator.geolocation.getCurrentPosition(getGeolocation)
-
+    navigator.geolocation.getCurrentPosition(getGeolocation);
   }
 
   if (ready) {

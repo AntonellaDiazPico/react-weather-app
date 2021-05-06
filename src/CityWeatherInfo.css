@@ -1,0 +1,77 @@
+.city {
+    line-height: 60px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 60px;
+    margin: 0;
+    padding: 40px 0 25px;
+    color: rgb(250, 240, 108);
+  }
+  
+  .weather {
+      text-align: center;
+      padding: 25px 60px;
+    }
+    
+    .todayWeather,
+    .todayTemp,
+    .todayHumidityWind {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    .current-icon {
+      font-size: 110px;
+      margin-top: -20px;
+      color: rgba(245, 245, 245, 0.863);
+    }
+  
+    
+    .description {
+      font-size: 20px;
+      position: relative;
+      top: -30px;
+      color: rgba(245, 245, 245, 0.863);
+    }
+    
+    .main-temp {
+      font-size: 120px;
+      font-weight: 600;
+      color: rgb(250, 240, 108);
+      position: relative;
+      top: 10px;
+      left: 20px;
+    }
+    .cf-symbol {
+      font-size: 22px;
+      position: relative;
+      top: -55px;
+      left: 5px;
+    }
+    
+    .cf-symbol a {
+      cursor: default;
+      color: rgb(250, 240, 108, 0.7);
+      text-decoration: none;
+    }
+    
+    .cf-symbol .active {
+      color: rgb(250, 240, 108);
+    }
+    
+    .todayHumidityWind {
+      /* padding-left: 30px; */
+      font-size: 17px;
+      color: rgba(245, 245, 245, 0.863);
+      position: relative;
+      top: 5px;
+      left: 45px;
+    }
+     .extras {
+      position: relative;
+      left: 5px;
+     }
+     .extras-humidity {
+      position: relative;
+      left: 10px;
+     }

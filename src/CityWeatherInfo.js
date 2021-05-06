@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTemperatureHigh } from "@fortawesome/free-solid-svg-icons";
 import { faTint } from "@fortawesome/free-solid-svg-icons";
 import { faWind } from "@fortawesome/free-solid-svg-icons";
-import "./DateTime.css";
+import "./CityWeatherInfo.css";
 
 export default function CityWeatherInfo(props) {
   return (
