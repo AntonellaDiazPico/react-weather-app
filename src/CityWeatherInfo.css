@@ -49,18 +49,18 @@
       left: 5px;
     }
     
-    .cf-symbol a {
+    .cf-symbol span {
       cursor: default;
       color: rgb(250, 240, 108, 0.7);
       text-decoration: none;
     }
     
     .cf-symbol .active {
-      color: rgb(250, 240, 108);
+      /* color: rgb(250, 240, 108); */
+      color: red;
     }
     
     .todayHumidityWind {
-      /* padding-left: 30px; */
       font-size: 17px;
       color: rgba(245, 245, 245, 0.863);
       position: relative;

@@ -1,16 +1,16 @@
 import React from "react";
-import "./DateTime.css";
+import "./FormattedDate.css";
 
-export default function DateTime(props) {
+export default function FormattedDate(props) {
 	
 	let formattedDay = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	let formattedMonth = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
-	let weekDay = formattedDay[props.dateTime.getDay()];
-	let day = props.dateTime.getDate();
-	let month = formattedMonth[props.dateTime.getMonth()];
-	let year = props.dateTime.getFullYear();
-	let hours = props.dateTime.getHours();
-	let minutes = props.dateTime.getMinutes();
+	let weekDay = formattedDay[props.date.getDay()];
+	let day = props.date.getDate();
+	let month = formattedMonth[props.date.getMonth()];
+	let year = props.date.getFullYear();
+	let hours = props.date.getHours();
+	let minutes = props.date.getMinutes();
 	if (minutes < 10) {
 		minutes = (`0${minutes}`);
 	}
@@ -18,7 +18,7 @@ export default function DateTime(props) {
   hours = hours % 12 || 12;
 
   return(
-    <div className="DateTime">
+    <div className="FormattedDate">
       <div className="date">{weekDay}, {day}.{month}.{year}</div>
     	<h2 className="time">{hours}:{minutes} {amPm}</h2>
     </div>

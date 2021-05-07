@@ -15,13 +15,13 @@ export default function ForecastDayByDay(props) {
 
   return (
     <div className="ForecastDayByDay">
-      <div className="DailyForecast-day">{day()}</div>
-      <div className="DailyForecast-icon">
+      <div className="Forecast-day">{day()}</div>
+      <div className="Forecast-icon">
         <WeatherIcon iconCode={icon} />
       </div>
-      <div className="DailyForecast-maxTemp">
+      <div className="Forecast-maxTemp">
         {maxTemperature}°{" "}
-        <span className="DailyForecast-minTemp">{minTemperature}°</span>
+        <span className="Forecast-minTemp">{minTemperature}°</span>
       </div>
     </div>
   );

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import ForecastDayByDay from "./ForecastDayByDay";
-import "./DailyForecast.css";
+import "./Forecast.css";
 import axios from "axios";
 
-export default function DailyForecast(props) {
+export default function Forecast(props) {
   const [ready, setReady] = useState(false);
   const [forecastData, setForecastData] = useState(null);
   function handleForecastResponse(response) {
@@ -17,7 +17,7 @@ export default function DailyForecast(props) {
 
   if (ready) {
     return (
-      <div className="row w-75% DailyForecast">
+      <div className="row w-75% Forecast">
         {forecastData.map(function (dailyForecastData, index) {
           if (index < 5) {
           return (

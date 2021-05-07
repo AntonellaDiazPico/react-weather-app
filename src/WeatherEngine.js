@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import Location from "./Location";
+import FormattedDate from "./FormattedDate";
 import CityWeatherInfo from "./CityWeatherInfo";
-import DailyForecast from "./DailyForecast";
+import Forecast from "./Forecast";
 import "./WeatherEngine.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,6 +14,7 @@ export default function WeatherEngine(props) {
   const [ready, setReady] = useState(false);
   const [weatherData, setWeatherData] = useState({});
   const [city, setCity] = useState(props.defaultCity);
+  const [unit, setUnit] = useState("celsius");
 
   function handleCityResponse(response) {
     setWeatherData({
@@ -80,8 +82,10 @@ export default function WeatherEngine(props) {
           </div>
         </div>
         {/* SEARCH ENGINE ENDS */}
-        <CityWeatherInfo cityData={weatherData} />
-        <DailyForecast coordinates={weatherData.coordinates} />
+        <Location location={weatherData} />
+        <FormattedDate date={weatherData.dateTime} />
+        <CityWeatherInfo cityData={weatherData} unit={unit} setUnit={setUnit} />
+        <Forecast coordinates={weatherData.coordinates} />
       </div>
     );
   } else {
