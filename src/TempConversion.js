@@ -78,7 +78,7 @@ export default function TempConversion(props) {
             <li>
               <FontAwesomeIcon icon={faTemperatureHigh} />
               <span className="additionals">
-                Feels like: {feelsLike}°C
+                Feels like: {feelsLike}°F
               </span>
             </li>
             <li>

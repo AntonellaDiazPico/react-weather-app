@@ -2,8 +2,6 @@ import React from "react";
 import WeatherIcon from "./WeatherIcon";
 
 export default function ForecastDayByDay(props) {
-  let maxTemperature = Math.round(props.forecast.temp.max);
-  let minTemperature = Math.round(props.forecast.temp.min);
   let icon = props.forecast.weather[0].icon;
 
   function day() {
@@ -13,16 +11,51 @@ export default function ForecastDayByDay(props) {
     return days[day];
   }
 
-  return (
-    <div className="ForecastDayByDay">
-      <div className="Forecast-day">{day()}</div>
-      <div className="Forecast-icon">
-        <WeatherIcon iconCode={icon} />
+  function celsiusMaxTemp() {
+    let celsiusMaxTemp = Math.round(props.forecast.temp.max);
+    return celsiusMaxTemp;
+  }
+
+  function celsiusMinTemp(){
+    let celsiusMinTemp = Math.round(props.forecast.temp.min);
+    return celsiusMinTemp;
+  }
+
+  function fahrenheitMaxTemp() {
+    let fahrenheitMaxTemp = Math.round((props.forecast.temp.max * 9) / 5 + 32);
+    return fahrenheitMaxTemp;
+  }
+
+  function fahrenheitMinTemp() {
+    let fahrenheitMinTemp = Math.round((props.forecast.temp.min * 9) / 5 + 32);
+    return fahrenheitMinTemp;
+  }
+
+  if (props.unit === "celsius") {
+    return (
+      <div className="ForecastDayByDay">
+        <div className="Forecast-day">{day()}</div>
+        <div className="Forecast-icon">
+          <WeatherIcon iconCode={icon} />
+        </div>
+        <div className="Forecast-maxTemp">
+          {celsiusMaxTemp()}°{" "}
+          <span className="Forecast-minTemp">{celsiusMinTemp()}°</span>
+        </div>
       </div>
-      <div className="Forecast-maxTemp">
-        {maxTemperature}°{" "}
-        <span className="Forecast-minTemp">{minTemperature}°</span>
+    );
+  } else {
+    return (
+      <div className="ForecastDayByDay">
+        <div className="Forecast-day">{day()}</div>
+        <div className="Forecast-icon">
+          <WeatherIcon iconCode={icon} />
+        </div>
+        <div className="Forecast-maxTemp">
+          {fahrenheitMaxTemp()}°{" "}
+          <span className="Forecast-minTemp">{fahrenheitMinTemp()}°</span>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }

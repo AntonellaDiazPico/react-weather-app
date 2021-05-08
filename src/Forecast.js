@@ -17,22 +17,24 @@ export default function Forecast(props) {
 
   if (ready) {
     return (
-      <div className="row w-75% Forecast">
+      <div className="row Forecast">
         {forecastData.map(function (dailyForecastData, index) {
-          if (index < 5) {
-          return (
-            <div className="col" key={index}>
-              <ForecastDayByDay forecast={dailyForecastData} />
-            </div>
-          );
-        } else {
-          return null;
-        }
+          if (index > 0 && index < 6) {
+            return (
+              <div className="col" key={index}>
+                <ForecastDayByDay
+                  forecast={dailyForecastData}
+                  unit={props.unit}
+                />
+              </div>
+            );
+          } else {
+            return null;
+          }
         })}
       </div>
     );
-  }
- else {
+  } else {
     let apiKey = "7397d5769aa7c8ab77c0945b1e990b7d";
     let latitude = props.coordinates.lat;
     let longitude = props.coordinates.lon;

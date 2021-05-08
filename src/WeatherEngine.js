@@ -85,7 +85,7 @@ export default function WeatherEngine(props) {
         <Location location={weatherData} />
         <FormattedDate date={weatherData.dateTime} />
         <CityWeatherInfo cityData={weatherData} unit={unit} setUnit={setUnit} />
-        <Forecast coordinates={weatherData.coordinates} />
+        <Forecast coordinates={weatherData.coordinates} unit={unit}/>
       </div>
     );
   } else {
