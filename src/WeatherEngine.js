@@ -53,7 +53,7 @@ export default function WeatherEngine(props) {
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleCityResponse);
   }
-  
+
   function handleGeolocation(event) {
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(getGeolocation);

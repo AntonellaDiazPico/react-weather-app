@@ -1,14 +1,4 @@
-.city {
-    line-height: 60px;
-    text-align: center;
-    font-weight: 600;
-    font-size: 60px;
-    margin: 0;
-    padding: 40px 0 25px;
-    color: rgb(250, 240, 108);
-  }
-  
-  .weather {
+    .weather {
       text-align: center;
       padding: 25px 60px;
     }
@@ -56,8 +46,8 @@
     }
     
     .cf-symbol .active {
-      /* color: rgb(250, 240, 108); */
-      color: red;
+      color: rgb(250, 240, 108);
+      /* color: red; */
     }
     
     .todayHumidityWind {
@@ -67,11 +57,11 @@
       top: 5px;
       left: 45px;
     }
-     .extras {
+     .additionals {
       position: relative;
       left: 5px;
      }
-     .extras-humidity {
+     .additionals-humidity {
       position: relative;
       left: 10px;
      }
