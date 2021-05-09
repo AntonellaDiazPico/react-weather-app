@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-// import Additionals from "./Additionals";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTemperatureHigh } from "@fortawesome/free-solid-svg-icons";
 import { faTint } from "@fortawesome/free-solid-svg-icons";
 import { faWind } from "@fortawesome/free-solid-svg-icons";
 
 export default function TempConversion(props) {
-  // const [unit, setUnit] = useState("celsius");
 
   function displayFahrenheit(event) {
     event.preventDefault();
@@ -66,10 +64,10 @@ export default function TempConversion(props) {
         <p className="main-temp">
           {fahrenheitTemp}
           <span className="cf-symbol">
-            <span className="active" onClick={displayCelsius}>
+            <span onClick={displayCelsius}>
               °C
             </span>{" "}
-            |<span>°F</span>
+            |<span className="active">°F</span>
           </span>
         </p>
         </div>

@@ -41,13 +41,12 @@
     
     .cf-symbol span {
       cursor: default;
-      color: rgb(250, 240, 108, 0.7);
+      color: rgb(250, 240, 108, 0.6);
       text-decoration: none;
     }
     
     .cf-symbol .active {
-      color: rgb(250, 240, 108);
-      /* color: red; */
+      color: rgb(250, 240, 108);;
     }
     
     .todayHumidityWind {
